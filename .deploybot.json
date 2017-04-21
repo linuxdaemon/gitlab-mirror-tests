@@ -1,0 +1,21 @@
+[
+    {
+        "name": "dev-deploy",
+        "triggers": [
+            "push"
+        ],
+        "branches": [
+            "testing"
+        ],
+        "remote-deploy": true,
+        "servers": [
+            "irc-dev"
+        ],
+        "script": [
+            "[ -d {name} ] || git clone {ssh_url}",
+            "cd {name}",
+            "git checkout {branch}",
+            "git pull"
+        ]
+    }
+]
